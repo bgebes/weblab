@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+th {
+  color: crimson;
+  font-weight: bold;
+  font-style: italic;
+}
+
+td:nth-child(odd) {
+  font-weight: bold;
+}

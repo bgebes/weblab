@@ -1,0 +1,52 @@
+ul {
+  border: 1px solid #000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 250px;
+}
+
+li {
+  padding: 10px;
+  position: relative;
+  border: 1px solid #000;
+  background-color: #008080;
+  color: #000;
+  font-weight: bold;
+}
+
+li:hover {
+  font-weight: bold;
+  color: #fff;
+  background-color: #7f8000;
+}
+
+ul ul {
+  display: none;
+  background-color: #008080;
+}
+
+li:hover ul {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 250px;
+}
+
+ul ul li {
+  background-color: #008080;
+}
+
+ul ul li:hover {
+  color: #fff;
+  background-color: #7f8000;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
