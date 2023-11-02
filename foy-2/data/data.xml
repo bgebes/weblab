@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <person>
+    <number>11111</number>
+    <name>Duygu AKŞEHİR</name>
+    <department>Bilgisayar Mühendisliği</department>
+    <grade>4</grade>
+  </person>
+  <person>
+    <number>22222</number>
+    <name>Ayşe ÇALIŞKAN</name>
+    <department>Makine Mühendisliği</department>
+    <grade>1</grade>
+  </person>
+  <person>
+    <number>33333</number>
+    <name>Semih ARSLAN</name>
+    <department>Gıda Mühendisliği</department>
+    <grade>2</grade>
+  </person>
+  <person>
+    <number>44444</number>
+    <name>Mehmet ERKOÇ</name>
+    <department>İktisat fakültesi</department>
+    <grade>4</grade>
+  </person>
+</catalog>

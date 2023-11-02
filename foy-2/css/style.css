@@ -1,0 +1,19 @@
+h2,
+h3 {
+  color: brown;
+}
+
+table {
+  border: 2px solid #000;
+}
+
+th {
+  border: 2px solid #000;
+  color: slateblue;
+  padding: 5px;
+}
+
+td {
+  border: 2px solid #000;
+  padding: 5px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Föy 2</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h2>Ogrenciye Tiklandiginda Bilgilerin Ekrana Getirilmesi</h2>
+    <div id="details"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Numara</th>
+          <th>AdSoyad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td onclick="loadData(this)">11111</td>
+          <td onclick="loadData(this)">Duygu AKŞEHİR</td>
+        </tr>
+        <tr>
+          <td onclick="loadData(this)">22222</td>
+          <td onclick="loadData(this)">Ayşe ÇALIŞKAN</td>
+        </tr>
+        <tr>
+          <td onclick="loadData(this)">33333</td>
+          <td onclick="loadData(this)">Semih ARSLAN</td>
+        </tr>
+        <tr>
+          <td onclick="loadData(this)">44444</td>
+          <td onclick="loadData(this)">Mehmet ERKOÇ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function loadData(element) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var people = this.responseXML.getElementsByTagName('person');
+
+            var textContent = parseInt(element.textContent);
+
+            for (var i = 0; i < people.length; i++) {
+              var person = people[i];
+
+              if (
+                person.children[isNaN(textContent) ? 1 : 0].textContent ==
+                element.textContent
+              ) {
+                document.getElementById('details').innerHTML =
+                  '<h3>' +
+                  'Numara : ' +
+                  person.children[0].textContent +
+                  '<br>' +
+                  'İsim : ' +
+                  person.children[1].textContent +
+                  '<br>' +
+                  'Bölüm : ' +
+                  person.children[2].textContent +
+                  '<br>' +
+                  'Sınıfı : ' +
+                  person.children[3].textContent +
+                  '</h3>';
+              }
+            }
+          }
+        };
+
+        xhttp.open('GET', 'data/data.xml', true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
