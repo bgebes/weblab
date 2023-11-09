@@ -6,7 +6,7 @@
     <title>Föy 2</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body onload="loadData()">
     <h2>Ogrenciye Tiklandiginda Bilgilerin Ekrana Getirilmesi</h2>
     <div id="details"></div>
     <table>
@@ -16,28 +16,34 @@
           <th>AdSoyad</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td onclick="loadData(this)">11111</td>
-          <td onclick="loadData(this)">Duygu AKŞEHİR</td>
-        </tr>
-        <tr>
-          <td onclick="loadData(this)">22222</td>
-          <td onclick="loadData(this)">Ayşe ÇALIŞKAN</td>
-        </tr>
-        <tr>
-          <td onclick="loadData(this)">33333</td>
-          <td onclick="loadData(this)">Semih ARSLAN</td>
-        </tr>
-        <tr>
-          <td onclick="loadData(this)">44444</td>
-          <td onclick="loadData(this)">Mehmet ERKOÇ</td>
-        </tr>
-      </tbody>
+      <tbody id="tbody"></tbody>
     </table>
 
     <script>
-      function loadData(element) {
+      function loadData() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var people = this.responseXML.getElementsByTagName('person');
+
+            for (let i = 0; i < people.length; i++) {
+              const person = people[i];
+
+              document.getElementById('tbody').innerHTML +=
+                "<tr><td onclick='loadDetails(this)'>" +
+                person.children[0].textContent +
+                "</td><td onclick='loadDetails(this)'>" +
+                person.children[1].textContent +
+                '</td></tr>';
+            }
+          }
+        };
+
+        xhttp.open('GET', 'data/data.xml', true);
+        xhttp.send();
+      }
+
+      function loadDetails(element) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
