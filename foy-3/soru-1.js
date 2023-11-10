@@ -14,6 +14,7 @@ connection.connect(function (err) {
   function createTable() {
     var sql =
       'CREATE TABLE Employee (EmployeId INT NOT NULL, FirstName VARCHAR(45) NOT NULL, LastName VARCHAR(45) NOT NULL, DepartmentName VARCHAR(45) NOT NULL, PRIMARY KEY (EmployeId) )';
+
     connection.query(sql, function (err, result) {
       if (err) throw err;
 

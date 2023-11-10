@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function findPrime() {
+function findPrimes() {
   const primeList = [];
   var i = 2;
 
@@ -29,4 +29,4 @@ function writeToFile(num) {
   });
 }
 
-findPrime();
+findPrimes();
